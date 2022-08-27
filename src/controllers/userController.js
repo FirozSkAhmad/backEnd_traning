@@ -62,6 +62,7 @@ const getUserData = async function (req, res) {
   // A token can only be decoded successfully if the same secret was used to create(sign) that token.
   // And because this token is only known to the server, it can be assumed that if a token is decoded at server then this token must have been issued by the same server in past.
   let decodedToken = jwt.verify(token, "functionup-plutonium-very-very-secret-key");
+  console.log(decodedToken)
   if (!decodedToken)
     return res.send({ status: false, msg: "token is invalid" });
 
